@@ -1,5 +1,5 @@
 {
-  "name": "MooodleScraper",
+  "name": "moodle-notifier-o365",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
