@@ -10,6 +10,9 @@ Moodle session cookies are cached for 5 hours after a successful login.
 
 ### Docker
 Use the docker image, and just mount the `.env` and `courses.json` files to `/srv/`
+```bash
+docker pull docker.pkg.github.com/weilbyte/moodle-notifier-o365/moodle-notifier-o365:latest
+```
 
 ### Non-docker
 Don't forget to create `.env` and `courses.json` files
