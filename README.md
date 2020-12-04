@@ -2,7 +2,7 @@
 
 Automatically checks a Moodle instance for new assignments. As of right now it only supports Office 365 authentication. 
 
-The resulting Docker image is a ~800-900 MB because of the use of `Puppeteer` (for the o365 authentication flow).    
+The resulting Docker image is a ~500 MB because of the use of `Puppeteer` (for the o365 authentication flow).    
 A cron job (`0 */2 * * *`, every 2 hrs) is performed to check for new assignments.   
 Moodle session cookies are cached for 5 hours after a successful login.    
 
@@ -40,11 +40,11 @@ Structure:
 }
 ```
 
-`name` does not have to match the course name in Moodle itself.
-`id` is the id of the course. It can be found in the course URL (`https://moodleinstance/course/view.php?id=**164693**`)
+`name` does not have to match the course name in Moodle itself.     
+`id` is the id of the course. It can be found in the course URL (`https://moodleinstance/course/view.php?id=**164693**`)   
 
 ### known.json
-This file is not required, it is created and modified as needed. All it does is contain an array with the IDs of known assignments. 
+This file is not required, it is created and modified as needed. All it does is contain an array with the IDs of known assignments.    
 
 Structure: 
 ```json
