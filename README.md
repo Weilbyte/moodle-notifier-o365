@@ -2,7 +2,9 @@
 
 Automatically checks a Moodle instance for new assignments. As of right now it only supports Office 365 authentication. 
 
-The resulting Docker image is a ~800-900 MB because of the use of `Puppeteer` (for the o365 authentication flow). It performs a cron job (`0 */2 * * *`, every 2 hrs) to check for new assignments.
+The resulting Docker image is a ~800-900 MB because of the use of `Puppeteer` (for the o365 authentication flow). 
+
+A cron job (`0 */2 * * *`, every 2 hrs) is performed to check for new assignments.
 
 Moodle session cookies are cached for 5 hours after a successful login.
 
