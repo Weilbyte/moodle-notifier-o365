@@ -27,15 +27,14 @@ if (util.getCourses().length === 0) {
     process.exit(1)
 }
 
+logger.info('Scheduling assignment discovery job')
 
-const assignmentCheckJob = new CronJob('0 */2 * * *', async () => {
+new CronJob(process.env.CRONTIME || '0 */2 * * *', async () => {
     if (await util.isMoodleReachable()) {
         const courses = getCourses()
         for (const course in courses) {
             await jobs.checkCourse(courses[course])
         }
     }
-})
+}, null, true, null, null, true)
 
-logger.info('Scheduled assignment discovery job')
-assignmentCheckJob.start()
