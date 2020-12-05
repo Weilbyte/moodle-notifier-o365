@@ -18,7 +18,14 @@ module.exports = {
         } else {
             logger.debug({ prefix: 'getMoodleCookies', message: 'Starting flow'})
             const url = process.env.MOODLE_URI
-            const browser = await puppeteer.launch({devtools: process.env.PUPPETEER_DEBUG || false})
+            const browser = await puppeteer.launch({
+                devtools: process.env.PUPPETEER_DEBUG || false,
+                args: [
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage'
+                ]
+            })
             const page = await browser.newPage()
             await page.goto(url, { waitUntil: 'networkidle0'})
 
