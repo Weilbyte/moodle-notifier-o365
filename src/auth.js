@@ -50,10 +50,12 @@ module.exports = {
                 const cookies = await page._client.send('Network.getAllCookies')
                 cache.moodle.expiry = (Math.floor(new Date().getTime() / 1000) + 10800) // 18000 = 5 hours
                 cache.moodle.cookies = cookies['cookies'].filter(cookie => (cookie.name === 'SimpleSAMLSessionID' || cookie.name === 'SimpleSAMLAuthToken' || cookie.name === 'MoodleSession'))
-                console.log(cache.moodle)
+                browser.close()
                 return cache.moodle.cookies
             } else {
                 logger.error({ prefix: 'getMoodleCookies', message: 'Moodle login failed' })
+                browser.close()
+                return ''
             }
         }
     }
